@@ -1,6 +1,5 @@
 <script setup>
 import { ref, computed } from 'vue'
-import '../fonts';
 
 const questions = ref([
 	{
