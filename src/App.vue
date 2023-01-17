@@ -31,7 +31,7 @@ const questions = ref([
 		'Michael, Pam, and Angela',
 		'Kelly, Angela and Pam',
 		'Ryan , Oscar, and Stanley',
-		'Pam, Angela, and Phylis.'
+		'Pam, Angela, and Phylis'
 	],
 	selected: null
   },
@@ -42,7 +42,7 @@ const questions = ref([
 		'False, this is not true',
 		'Jim told Andy he loves Tuna Sammies',
 		'Andy is just a jerk like that',
-		'He saw Jim eating a tuna fish sandwich on his first day at the new branch.'
+		'He saw Jim eating a tuna fish sandwich on his first day at the new branch'
 	],
 	selected: null
   },
@@ -94,7 +94,9 @@ const NextQuestion = () => {
 
 <template>
 	<main class="app">
-		<h1>The Office Quiz</h1>
+		<div>
+			<img src="https://github.com/Jorgelopez5252/vue-quiz/blob/main/images/officeTriviaLogo.jpeg?raw=true" id="logoOffice" alt="Office Logo"/>
+		</div>
 		
 		<section class="quiz" v-if="!quizCompleted">
 			<div class="quiz-info">
@@ -156,7 +158,14 @@ const NextQuestion = () => {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Montserrat', sans-serif;
+	font-family:The Office;
+}
+
+#logoOffice {
+	max-width: 100%;
+	width: 640px;
+	margin: auto;
+	height: auto;
 }
 
 body {
@@ -191,8 +200,8 @@ h1 {
 }
 
 .quiz-info .question {
-	color: #8F8F8F;
-	font-size: 1.25rem;
+	color: #fff;
+	font-size: 1.15rem;
 }
 
 .quiz-info.score {
