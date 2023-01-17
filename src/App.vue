@@ -56,12 +56,28 @@ const getCurrentQuestion = computed(() => {
 
 const setAnswer = evt => {
   questions.value[currentQuestion.value].selected = evt.target.value
+  evt.target.value = null
+}
+
+const NextQuestion = () => {
+  if(currentQuestion.value < questions.value.length - 1) {
+    currentQuestion.value++
+  } else {
+    quizCompleted.value = true
+  }
 }
 
 </script>
 
 <template>
- <h1>Hello world</h1>
+<main class="app">
+  <h1>The Quiz</h1>
+  <section class="quiz">
+    <div class="quiz-info">
+      <span class="question"> {{ getCurrentQuestion.question }}</span>
+    </div>
+  </section>
+</main>
 </template>
 
 <style>
