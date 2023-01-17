@@ -37,7 +37,7 @@ const questions= ref([
 ])
 
 const quizCompleted = ref(false)
-const currentQUestion = ref(0)
+const currentQuestion = ref(0)
 const score =computed(() => {
   let value = 0
   questions.value.map(a => {
@@ -47,6 +47,16 @@ const score =computed(() => {
   })
   return value
 })
+
+const getCurrentQuestion = computed(() => {
+  let question = questions.value[currentQuestion.value]
+  question.index = currentQuestion.value
+  return question
+})
+
+const setAnswer = evt => {
+  questions.value[currentQuestion.value].selected = evt.target.value
+}
 
 </script>
 
