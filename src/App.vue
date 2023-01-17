@@ -206,6 +206,11 @@ const NextQuestion = () => {
 </template>
 
 <style>
+
+@font-face {
+  font-family:The Office;
+  src: url(/fonts/AmericanTypewriterRegular.ttf);
+}
 * {
 	margin: 0;
 	padding: 0;
