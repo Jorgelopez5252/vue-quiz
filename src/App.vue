@@ -206,16 +206,12 @@ const NextQuestion = () => {
 </template>
 
 <style>
-
-@font-face {
-  font-family:The Office;
-  src: url(/fonts/AmericanTypewriterRegular.ttf) format("truetype");
-}
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: The Office;
+	font-family: 'Courier New', Courier, monospace;
+	/* font-family: The Office; */
 }
 
 #logoOffice {
