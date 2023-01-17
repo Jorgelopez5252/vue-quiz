@@ -2,60 +2,115 @@
 import { ref, computed } from 'vue'
 
 const questions = ref([
-  {
-	question: 'What does Michael pretend to fire Pam over in season one?',
-	answer: 2,
-	options: [
-		'Dating Jim',
-		'Messing with Dwight to much',
-		'Stealing post-it Notes',
-		'Disrespecting Prison Mike'
-	],
-	selected: null
-  },
-  {
-	question: 'Whats the companys annual award ceremony called?',
-	answer: 1,
-	options: [
-		'Scotts Tots',
-		'The Dundies',
-		'Mifflin Majority',
-		'Scranton Squad'
-	],
-	selected: null
-  },
-  {
-	question: 'Who are the 3 main members of the Party Planning Committee?',
-	answer: 3,
-	options: [
-		'Michael, Pam, and Angela',
-		'Kelly, Angela and Pam',
-		'Ryan , Oscar, and Stanley',
-		'Pam, Angela, and Phylis'
-	],
-	selected: null
-  },
-  {
-	question: 'Why does Andy call Jim “Big Tuna”?',
-	answer: 3,
-	options: [
-		'False, this is not true',
-		'Jim told Andy he loves Tuna Sammies',
-		'Andy is just a jerk like that',
-		'He saw Jim eating a tuna fish sandwich on his first day at the new branch'
-	],
-	selected: null
-  },
-  {
-	question: 'What is Dwights favorite TV Show',
-	answer: 2,
-	options: [
-		'Bears',
-		'Beats',
-		'Battlestar Galactica',
-	],
-	selected: null
-  }
+	{
+		question: 'What does Michael pretend to fire Pam over in season one?',
+		answer: 2,
+		options: [
+			'Dating Jim',
+			'Messing with Dwight to much',
+			'Stealing post-it Notes',
+			'Disrespecting Prison Mike'
+		],
+		selected: null
+	},
+	{
+		question: 'Whats the companys annual award ceremony called?',
+		answer: 1,
+		options: [
+			'Scotts Tots',
+			'The Dundies',
+			'Mifflin Majority',
+			'Scranton Squad'
+		],
+		selected: null
+	},
+	{
+		question: 'Who are the 3 main members of the Party Planning Committee?',
+		answer: 3,
+		options: [
+			'Michael, Pam, and Angela',
+			'Kelly, Angela and Pam',
+			'Ryan , Oscar, and Stanley',
+			'Pam, Angela, and Phylis'
+		],
+		selected: null
+	},
+	{
+		question: 'Why does Andy call Jim “Big Tuna”?',
+		answer: 3,
+		options: [
+			'False, this is not true',
+			'Jim told Andy he loves Tuna Sammies',
+			'Andy is just a jerk like that',
+			'He saw Jim eating a tuna fish sandwich on his first day at the new branch'
+		],
+		selected: null
+	},
+	{
+		question: 'What is Dwights favorite TV Show',
+		answer: 2,
+		options: [
+			'Bears',
+			'Beats',
+			'Battlestar Galactica',
+		],
+		selected: null
+	},
+	{
+		question: 'Which of Angelas cats did Dwight kill?',
+		answer: 0,
+		options: [
+			'Sprinkles',
+			'Bandit',
+			'Cookie',
+			'Beet'
+		],
+		selected: null
+	},
+	{
+		question: 'What was the name of Jan Levinsons assistant',
+		answer: 1,
+		options: [
+			'Tyler',
+			'Hunter',
+			'Jesse',
+			'Jacob'
+		],
+		selected: null
+	},
+	{
+		question: 'Ryan caused the fire at the office warming up what?',
+		answer: 3,
+		options: [
+			'Hot Cocoa',
+			'Coffee',
+			'Bean Burrito',
+			'A Cheese Pita'
+		],
+		selected: null
+	},
+	{
+		question: 'What was the name of Andys a cappella group at Cornell?',
+		answer: 2,
+		options: [
+			'Big Tunas',
+			'The Hey-ohs',
+			'Here comes Treble',
+			'Cornell Captains'
+		],
+		selected: null
+	},
+	{
+		question: 'Pam and Jims first kiss took place where?',
+		answer: 1,
+		options: [
+			'Outside the Office after Casino Night',
+			'Chilis',
+			'Poor Richards',
+			'In the Warehouse'
+		],
+		selected: null
+	}
 ])
 
 const quizCompleted = ref(false)
@@ -87,58 +142,47 @@ const NextQuestion = () => {
 		currentQuestion.value++
 		return
 	}
-	
+
 	quizCompleted.value = true
 }
+
 </script>
 
 <template>
 	<main class="app">
 		<div>
-			<img src="https://github.com/Jorgelopez5252/vue-quiz/blob/main/images/officeTriviaLogo.jpeg?raw=true" id="logoOffice" alt="Office Logo"/>
+			<img src="https://github.com/Jorgelopez5252/vue-quiz/blob/main/images/officeTriviaLogo.jpeg?raw=true"
+				id="logoOffice" alt="Office Logo" />
 		</div>
-		
+
 		<section class="quiz" v-if="!quizCompleted">
 			<div class="quiz-info">
 				<span class="question">{{ getCurrentQuestion.question }}</span>
 				<span class="score">Score {{ score }}/{{ questions.length }}</span>
 			</div>
-			
+
 			<div class="options">
-				<label 
-					v-for="(option, index) in getCurrentQuestion.options" 
-					:for="'option' + index" 
-					:class="`option ${
-						getCurrentQuestion.selected == index 
-							? index == getCurrentQuestion.answer 
-								? 'correct' 
-								: 'wrong'
-							: ''
-					} ${
-						getCurrentQuestion.selected != null &&
-						index != getCurrentQuestion.selected
-							? 'disabled'
-							: ''
-					}`">
-					<input 
-						type="radio" 
-						:id="'option' + index" 
-						:name="getCurrentQuestion.index" 
-						:value="index" 
-						v-model="getCurrentQuestion.selected" 
-						:disabled="getCurrentQuestion.selected"
-						@change="SetAnswer" 
-					/>
+				<label v-for="(option, index) in getCurrentQuestion.options" :for="'option' + index" :class="`option ${getCurrentQuestion.selected == index
+					? index == getCurrentQuestion.answer
+						? 'correct'
+						: 'wrong'
+					: ''
+				} ${getCurrentQuestion.selected != null &&
+					index != getCurrentQuestion.selected
+					? 'disabled'
+					: ''
+				}`">
+					<input type="radio" :id="'option' + index" :name="getCurrentQuestion.index" :value="index"
+						v-model="getCurrentQuestion.selected" :disabled="getCurrentQuestion.selected"
+						@change="SetAnswer" />
 					<span>{{ option }}</span>
 				</label>
 			</div>
-			
-			<button 
-				@click="NextQuestion" 
-				:disabled="!getCurrentQuestion.selected">
-				{{ 
-					getCurrentQuestion.index == questions.length - 1 
-						? 'Finish' 
+
+			<button @click="NextQuestion" :disabled="!getCurrentQuestion.selected">
+				{{
+					getCurrentQuestion.index == questions.length - 1
+						? 'Finish'
 						: getCurrentQuestion.selected == null
 							? 'Select an option'
 							: 'Next question'
@@ -149,6 +193,14 @@ const NextQuestion = () => {
 		<section v-else>
 			<h2>You have finished the quiz!</h2>
 			<p>Your score is {{ score }}/{{ questions.length }}</p>
+			<div>
+				<br>
+				<div id="winLoseScreen" >
+					<h1>Congrats, on geting through but how did you do?</h1>
+					<img src="https://media.tenor.com/X15e67QrANUAAAAC/the-office.gif" id="logoOffice"
+						alt="Office Logo" />
+				</div>
+			</div>
 		</section>
 	</main>
 </template>
@@ -158,7 +210,7 @@ const NextQuestion = () => {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family:The Office;
+	font-family: The Office;
 }
 
 #logoOffice {
@@ -166,6 +218,10 @@ const NextQuestion = () => {
 	width: 640px;
 	margin: auto;
 	height: auto;
+}
+
+#winLoseScreen {
+	text-align: center;
 }
 
 body {
@@ -201,7 +257,7 @@ h1 {
 
 .quiz-info .question {
 	color: #fff;
-	font-size: 1.15rem;
+	font-size: 1rem;
 }
 
 .quiz-info.score {
