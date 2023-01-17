@@ -3,32 +3,56 @@ import { ref, computed } from 'vue'
 
 const questions = ref([
   {
-	question: 'What is Vue?',
-	answer: 0,
-	options: [
-		'A framework',
-		'A library',
-		'A type of hat'
-	],
-	selected: null
-  },
-  {
-	question: 'What is Vuex used for?',
+	question: 'What does Michael pretend to fire Pam over in season one?',
 	answer: 2,
 	options: [
-		'Eating a delicious snack',
-		'Viewing things',
-		'State management'
+		'Dating Jim',
+		'Messing with Dwight to much',
+		'Stealing post-it Notes',
+		'Disrespecting Prison Mike'
 	],
 	selected: null
   },
   {
-	question: 'What is Vue Router?',
+	question: 'Whats the companys annual award ceremony called?',
 	answer: 1,
 	options: [
-		'An ice cream maker',
-		'A routing library for Vue',
-		'Burger sauce'
+		'Scotts Tots',
+		'The Dundies',
+		'Mifflin Majority',
+		'Scranton Squad'
+	],
+	selected: null
+  },
+  {
+	question: 'Who are the 3 main members of the Party Planning Committee?',
+	answer: 3,
+	options: [
+		'Michael, Pam, and Angela',
+		'Kelly, Angela and Pam',
+		'Ryan , Oscar, and Stanley',
+		'Pam, Angela, and Phylis.'
+	],
+	selected: null
+  },
+  {
+	question: 'Why does Andy call Jim “Big Tuna”?',
+	answer: 3,
+	options: [
+		'False, this is not true',
+		'Jim told Andy he loves Tuna Sammies',
+		'Andy is just a jerk like that',
+		'He saw Jim eating a tuna fish sandwich on his first day at the new branch.'
+	],
+	selected: null
+  },
+  {
+	question: 'What is Dwights favorite TV Show',
+	answer: 2,
+	options: [
+		'Bears',
+		'Beats',
+		'Battlestar Galactica',
 	],
 	selected: null
   }
@@ -70,7 +94,7 @@ const NextQuestion = () => {
 
 <template>
 	<main class="app">
-		<h1>The Quiz</h1>
+		<h1>The Office Quiz</h1>
 		
 		<section class="quiz" v-if="!quizCompleted">
 			<div class="quiz-info">
