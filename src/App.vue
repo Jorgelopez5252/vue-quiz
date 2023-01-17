@@ -1,48 +1,48 @@
 <script setup>
-import {ref, computed} from "vue"
+import { ref, computed } from "vue"
 
 // question block
-const questions= ref([
+const questions = ref([
   {
-    question:'What is Vue JS?',
-    answer:0,
-    options:[
+    question: 'What is Vue JS?',
+    answer: 0,
+    options: [
       'A front-end framwork',
       'A library',
       'An ice cream maker'
     ],
-    selected:null
+    selected: null
   },
   {
-    question:'What is vuex?',
-    answer:2,
-    options:[
+    question: 'What is vuex?',
+    answer: 2,
+    options: [
       'Vue with an x',
       'A library',
       'Stage Management Library'
     ],
-    selected:null
+    selected: null
   },
   {
-    question:'What is Vue Router used for?',
-    answer:1,
-    options:[
+    question: 'What is Vue Router used for?',
+    answer: 1,
+    options: [
       'Walking in space',
       'Routing Library for Vue JS',
       'A console tool option'
     ],
-    selected:null
+    selected: null
   }
-  
+
 ])
 
 const quizCompleted = ref(false)
 const currentQuestion = ref(0)
-const score =computed(() => {
+const score = computed(() => {
   let value = 0
-  questions.value.map(a => {
-    if(questions.selected == questions.answer) {
-      value ++
+  questions.value.map(q => {
+    if (q.selected == q.answer) {
+      value++
     }
   })
   return value
@@ -60,7 +60,7 @@ const setAnswer = evt => {
 }
 
 const NextQuestion = () => {
-  if(currentQuestion.value < questions.value.length - 1) {
+  if (currentQuestion.value < questions.value.length - 1) {
     currentQuestion.value++
   } else {
     quizCompleted.value = true
@@ -70,27 +70,28 @@ const NextQuestion = () => {
 </script>
 
 <template>
-<main class="app">
-  <h1>The Quiz</h1>
-  <section class="quiz">
-    <div class="quiz-info">
-      <span class="question"> {{ getCurrentQuestion.question }}</span>
-    </div>
-  </section>
-</main>
+  <main class="app">
+    <h1>The Quiz</h1>
+    <section class="quiz">
+      <div class="quiz-info">
+        <span class="question"> {{ getCurrentQuestion.question }}</span>
+        <span class="score">Score {{ score }} / {{ questions.length }}</span>
+      </div>
+    </section>
+  </main>
 </template>
 
 <style>
 * {
-  margin:0;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 600;
 }
 
 body {
   background-color: #271c36;
-  color:#fff;
+  color: #fff;
 }
 </style>
