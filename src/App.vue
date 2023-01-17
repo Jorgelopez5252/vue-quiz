@@ -209,7 +209,7 @@ const NextQuestion = () => {
 
 @font-face {
   font-family:The Office;
-  src: url(/fonts/AmericanTypewriterRegular.ttf);
+  src: url(/fonts/AmericanTypewriterRegular.ttf) format("truetype");
 }
 * {
 	margin: 0;
