@@ -1,5 +1,7 @@
 <script setup>
 import { ref, computed } from "vue";
+import officeLogo from "/images/officeTriviaLogo.jpeg";
+
 
 const quizStarted = ref(false);
 const quizCompleted = ref(false);
@@ -150,11 +152,7 @@ const NextQuestion = () => {
     <!-- Welcome Screen -->
     <section v-if="!quizStarted" class="welcome">
 
-      <img
-        src="https://github.com/Jorgelopez5252/vue-quiz/blob/main/images/officeTriviaLogo.jpeg?raw=true"
-        id="logoOffice"
-        alt="Office Logo"
-      />
+    <img :src="officeLogo" id="logoOffice" alt="Office Logo" />
 
       <h1>The Office Trivia Quiz</h1>
       <p>Test your knowledge of Dunder Mifflin!</p>
@@ -169,11 +167,8 @@ const NextQuestion = () => {
     <section class="quiz" v-if="quizStarted && !quizCompleted">
 
       <div>
-        <img
-          src="https://github.com/Jorgelopez5252/vue-quiz/blob/main/images/officeTriviaLogo.jpeg?raw=true"
-          id="logoOffice"
-          alt="Office Logo"
-        />
+    <img :src="officeLogo" id="logoOffice" alt="Office Logo" />
+      
       </div>
 
       <div class="quiz-info">
